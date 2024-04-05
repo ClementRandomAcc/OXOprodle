@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <link rel="icon" href="/public/images/favicon.ico" />
+    <link rel="stylesheet" href="/public/stylesheets/style.css" />
+    <link
+      rel="manifest"
+      type="application/manifest+json"
+      href="/app.webmanifest"
+    />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <title>Pokédle</title>
+  </head>
+  <body>
+    <div id="topnav">
+      <div id="authref">
+        <p>Created by <a href="https://github.com/maxm33">maxm33</a></p>
+      </div>
+      <input
+        type="button"
+        value="Login with Google"
+        id="loginButton"
+        class="coolbutton"
+      />
+      <input
+        type="button"
+        value="Rankings"
+        id="rankingsButton"
+        class="coolbutton"
+      />
+      <input
+        type="button"
+        value="Pokédex"
+        id="pokedexButton"
+        class="coolbutton"
+      />
+      <input
+        type="button"
+        value="Profile"
+        id="profileButton"
+        class="coolbutton"
+      />
+    </div>
+    <div id="container">
+      <div id="logo">
+        <a href="/"><img alt="" src="/public/images/pokedle-logo.webp" /></a>
+      </div>
+      <div id="timer">Nouveau pro dans ...</div>
+      <div id="subtitle"></div>
+      <div id="bar-container" style="visibility: hidden">
+        <div id="autocomplete">
+          <input
+            id="myInput"
+            type="text"
+            name="pokemon"
+            placeholder="Type the Pokémon here..."
+          />
+        </div>
+        <button id="bouncyButton" type="submit">Envoyer</button>
+      </div>
+      <div id="menu-container">
+        <div id="category-titles">
+          <div class="titles">
+            <p>Nom</p>
+          </div>
+          <div class="titles">
+            <p>Nationalité</p>
+          </div>
+          <div class="titles">
+            <p>Genre</p>
+          </div>
+          <div class="titles">
+            <p>Jeu(x)</p>
+          </div>
+          <div class="titles">
+            <p>Studio(s)</p>
+          </div>
+          <div class="titles">
+            <p>Âge</p>
+          </div>
+          <div class="titles">
+            <p>Métier(s)</p>
+          </div>
+        </div>
+        <div id="answer-container"></div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="/public/js/main.js"></script>
+  </body>
+</html>

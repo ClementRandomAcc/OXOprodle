@@ -1,0 +1,523 @@
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
+html {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("/public/images/background.webp") no-repeat 50% fixed;
+  background-size: cover;
+  background-color: #000;
+  overflow-y: hidden;
+}
+body {
+  margin: 0.5em;
+  background-color: transparent !important;
+  overflow-y: auto;
+  font: 0.95em Arial;
+}
+#topnav {
+  background-color: transparent;
+  overflow: hidden;
+}
+#authref {
+  color: white;
+  float: left;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.coolbutton {
+  color: white;
+  background-color: #333;
+  float: right;
+  font-size: 1.2em;
+  font-weight: 800;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  padding-right: 1em;
+  padding-left: 1em;
+  margin: 0.22em;
+  border: none;
+  border-radius: 0.8em;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  animation: fadeIn 1.5s;
+}
+.coolbutton:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#profileButton {
+  visibility: hidden;
+}
+#pokedexButton {
+  visibility: hidden;
+}
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+#logo {
+  display: flex;
+  justify-content: center;
+  height: 9em;
+  width: 26em;
+  margin-top: 1em;
+  transition: all 0.2s ease-in-out;
+}
+#logo:hover {
+  transform: scale(1.1);
+}
+#timer {
+  color: lightgreen;
+  margin-top: 3em;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#subtitle {
+  color: white;
+  animation: fadeIn 1.5s;
+  margin-top: 2.5em;
+  margin-bottom: 1.75em;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+a:link,
+a:visited {
+  color: greenyellow;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: deepskyblue;
+  background-color: transparent;
+  text-decoration: none;
+}
+* {
+  box-sizing: border-box;
+}
+input[type="text"] {
+  color: white;
+  background-color: #333;
+  width: 100%;
+  border: 0.05em solid transparent;
+  border-radius: 0.7em;
+  padding: 0.65em;
+  font-size: 1.05em;
+}
+input[type="hidden"] {
+  background-color: transparent !important;
+}
+#autocomplete {
+  position: relative;
+  display: inline-block;
+  margin-left: 3.5em;
+  width: 16em;
+}
+.autocomplete-items {
+  position: absolute;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  top: 100%;
+  left: 0;
+  right: 0;
+  box-sizing: border-box;
+  max-height: 27.7em;
+  overflow-y: scroll;
+}
+.list-option {
+  display: flex;
+  align-items: center;
+  border-radius: 0.36em;
+  font-size: 1.1em;
+  font-weight: 100;
+}
+.autocomplete-items div {
+  color: white;
+  background-color: #333;
+  cursor: pointer;
+  border: none;
+}
+.autocomplete-items div:hover {
+  transition: all 0.2s;
+  background-color: #404040;
+}
+.autocomplete-items::-webkit-scrollbar {
+  width: 0.5em;
+}
+.autocomplete-items::-webkit-scrollbar-track {
+  background: transparent;
+}
+.autocomplete-items::-webkit-scrollbar-thumb {
+  background-color: #d3d3d3;
+  border: 0.15em solid transparent;
+  border-radius: 1em;
+}
+#bouncyButton {
+  position: relative;
+  display: inline-block;
+  color: white;
+  background-color: transparent;
+  margin: 0em 0.3em 0.3em 0;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #ffffff;
+  border-radius: 0.96em;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  transition: all 0.2s;
+  animation: bouncy 3s infinite linear;
+}
+#bouncyButton:hover {
+  color: black;
+  background-color: white;
+}
+#category-titles {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.6em;
+  margin-bottom: 0.8em;
+  width: 36em;
+  height: 3em;
+  animation: fadeIn 1.5s;
+  visibility: hidden;
+}
+.titles {
+  color: white;
+  margin: 0.1em;
+  width: 6em;
+  font-weight: bold;
+}
+#answer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.answer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 0.8em;
+  width: 36em;
+  height: 5em;
+}
+.wrong {
+  position: relative;
+  color: white;
+  background-color: red;
+  text-align: center;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  padding-top: 0.6em;
+  height: 4.5em;
+  width: 5.5em;
+  border-radius: 0.8em;
+  font-weight: bold;
+  animation: fadeIn 1.5s;
+}
+.correct {
+  position: relative;
+  color: white;
+  background-color: #008000;
+  text-align: center;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  padding-top: 0.6em;
+  height: 4.5em;
+  width: 5.5em;
+  border-radius: 0.8em;
+  font-weight: bold;
+  animation: fadeIn 1.5s;
+}
+.partial {
+  position: relative;
+  color: white;
+  background-color: #cc7722;
+  text-align: center;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+  padding-top: 0.6em;
+  height: 4.5em;
+  width: 5.5em;
+  border-radius: 0.8em;
+  font-weight: bold;
+  animation: fadeIn 1.5s;
+}
+#victory-ad {
+  position: absolute;
+  color: #fff;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  z-index: 2400;
+  width: 26em;
+  height: 36em;
+  border-radius: 3em;
+  animation: fadeIn 2s;
+}
+#victoryButton {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.8em;
+  border-radius: 3em;
+  border-width: 0;
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1em;
+  list-style: none;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#pokeprof-button {
+  color: black;
+  background-color: white;
+  cursor: pointer;
+  margin: 0;
+  padding: 0.8em;
+  border-radius: 3em;
+  border-width: 0;
+  font-size: 0.7em;
+  font-weight: bold;
+  line-height: 1em;
+  list-style: none;
+  text-align: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#pokedex-title {
+  color: white;
+  margin-top: 1.5em;
+  font-size: 1.3rem;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+#pokedex-numbers {
+  color: white;
+  margin-bottom: 1em;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.pokedex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: blanchedalmond;
+  height: 7.5em;
+  width: 32em;
+  margin-bottom: 1em;
+  border-radius: 1.8em;
+  animation: fadeIn 1.5s;
+}
+.pokedex-row-numbers {
+  color: black;
+  margin: 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.pokedex-text {
+  color: black;
+  margin: 2.5em;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.shake {
+  animation: horizontal-shaking 0.35s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes horizontal-shaking {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(0.25em);
+  }
+  50% {
+    transform: translateX(-0.25em);
+  }
+  75% {
+    transform: translateX(0.25em);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes bouncy {
+  0% {
+    top: 0em;
+  }
+  40% {
+    top: 0em;
+  }
+  43% {
+    top: -0.9em;
+  }
+  46% {
+    top: 0em;
+  }
+  48% {
+    top: -0.4em;
+  }
+  50% {
+    top: 0em;
+  }
+  100% {
+    top: 0em;
+  }
+}
+
+@media (min-width: 410px) and (max-width: 650px) {
+  #authref {
+    font-size: 0.7em;
+  }
+  .coolbutton {
+    font-size: 0.9em;
+    font-weight: 800;
+    padding-top: 0.35em;
+    padding-bottom: 0.35em;
+    padding-right: 0.55em;
+    padding-left: 0.55em;
+    margin: 0.15em;
+  }
+  #logo,
+  #logo a img {
+    height: 7em;
+    width: 20em;
+  }
+  #timer {
+    font-size: 0.9em;
+  }
+  #subtitle {
+    font-size: 1.2em;
+  }
+  #autocomplete {
+    margin-left: 0;
+  }
+  #menu-container {
+    max-width: 26em;
+  }
+  #category-titles {
+    max-width: 26em;
+  }
+  .titles {
+    font-size: 0.8em;
+    margin: 0.2em;
+  }
+  .answer {
+    max-width: 26em;
+  }
+  .answer img {
+    width: 4em;
+    height: 4em;
+  }
+  .wrong,
+  .correct,
+  .partial {
+    word-wrap: break-word;
+    max-width: 4em;
+  }
+  .pokedex-row {
+    max-width: 25em;
+  }
+  .pokedex-row-numbers {
+    font-size: 0.9em;
+    margin: 0.5em;
+  }
+  .pokedex-text {
+    font-size: 0.9em;
+    margin: 1.3em;
+  }
+}
+
+@media (max-width: 409px) {
+  body {
+    margin: 0.3em;
+  }
+  #authref {
+    font-size: 0.7em;
+  }
+  .coolbutton {
+    font-size: 0.8em;
+    font-weight: 800;
+    padding-top: 0.25em;
+    padding-bottom: 0.25em;
+    padding-right: 0.45em;
+    padding-left: 0.45em;
+    margin: 0.15em;
+    margin-top: 0.5em;
+  }
+  #logo,
+  #logo a img {
+    height: 5.83em;
+    width: 16.66em;
+  }
+  #timer {
+    font-size: 0.9em;
+  }
+  #subtitle {
+    font-size: 1.1em;
+  }
+  #autocomplete {
+    margin-left: 0;
+  }
+  #menu-container {
+    max-width: 23em;
+  }
+  #category-titles {
+    max-width: 23em;
+  }
+  .titles {
+    font-size: 0.8em;
+    margin: 0.2em;
+  }
+  .answer {
+    max-width: 23em;
+  }
+  .answer img {
+    width: 4em;
+    height: 4em;
+  }
+  .wrong,
+  .correct,
+  .partial {
+    word-wrap: break-word;
+    max-width: 4em;
+  }
+  .pokedex-row {
+    max-width: 22em;
+  }
+  .pokedex-row-numbers {
+    font-size: 0.9em;
+    margin: 0.5em;
+  }
+  .pokedex-text {
+    font-size: 0.9em;
+    margin: 1em;
+  }
+}
